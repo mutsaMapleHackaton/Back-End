@@ -2,15 +2,15 @@
 	{
 		"model": "letterOnTreeApp.Letter",
 		"fields": {
-			"title": "letter161.png",
-			"image": "/Users/gesal03/Documents/GitHub/Back-End/letterOnTree/media/img/"
+			"title": "letter854.png",
+			"image": "C:\\Dev\\Back-End-L\\letterOnTree\\media\\img/"
 		}
 	},
 	{
 		"model": "letterOnTreeApp.Letter",
 		"fields": {
-			"title": "letter161.png",
-			"image": "/Users/gesal03/Documents/GitHub/Back-End/letterOnTree/media/img/"
+			"title": "letter854.png",
+			"image": "C:\\Dev\\Back-End-L\\letterOnTree\\media\\img/"
 		}
 	}
 ]
