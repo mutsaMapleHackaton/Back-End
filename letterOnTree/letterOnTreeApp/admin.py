@@ -3,5 +3,5 @@ from .models import Letter
 # Register your models here.
 
 class LetterAdmin(admin.ModelAdmin):
-    list_display = ('title', 'image')
+    list_display = ('id', 'image')
 admin.site.register(Letter, LetterAdmin)

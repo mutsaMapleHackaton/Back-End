@@ -2,10 +2,10 @@ import base64
 import json
 import os
 import random
-from urllib import request
 from django.shortcuts import render
-from letterOnTree import settings
+from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
+from .models import Letter
 
 # Create your views here.
 def index(request):
@@ -27,22 +27,29 @@ def canvasToImage(request):
     image.write(base64.b64decode(data))
     image.close()
 
-    answer ={
-        'title': filename,
-        'image': path
-    }
-    letters = []
-    letter = {}
-    letter["model"] = "letterOnTreeApp.Letter"
-    letter["fields"] = {}
-    
-    for key, value in answer.items():
-        if key in ['title', 'image']:
-            letter["fields"][key] = value
-        letters.append(letter)
+    uploadImage(filename, "img/"+filename)
 
-    with open('letters.json', 'w', encoding="utf-8") as make_file: 
-            json.dump(letters, make_file, ensure_ascii=False, indent="\t") 
+    # answer ={
+    #     'title': filename,
+    #     'image': path
+    # }
+    # letters = []
+    # letter = {}
+    # letter["model"] = "letterOnTreeApp.Letter"
+    # letter["fields"] = {}
+    
+    # for key, value in answer.items():
+    #     if key in ['title', 'image']:
+    #         letter["fields"][key] = value
+    #     letters.append(letter)
+
+    # with open('letters.json', 'w', encoding="utf-8") as make_file: 
+    #         json.dump(letters, make_file, ensure_ascii=False, indent="\t") 
+
     return render(request, "testLetterCreate.html")
 
-    
+def uploadImage(filename, image):
+    form = Letter()
+    form.title = filename
+    form.image = image
+    form.save()
