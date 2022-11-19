@@ -16,7 +16,7 @@ def index(request):
         'randomLetters' : randomLetters,
         'sizeOfImages': sizeOfImages
     }
-    return render(request, "index2.html", context)
+    return render(request, "main.html", context)
 
 @csrf_exempt
 def canvasToImage(request):
