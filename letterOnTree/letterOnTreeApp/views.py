@@ -1,5 +1,4 @@
 import base64
-import json
 import os
 import random
 from django.shortcuts import render
@@ -9,7 +8,16 @@ from .models import Letter
 
 # Create your views here.
 def index(request):
-    return render(request, "testLetterCreate.html")
+    images = list(Letter.objects.all())
+    randomLetters = images
+    sizeOfImages = len(images)
+    if sizeOfImages > 20:
+        randomLetters = random.sample(images, 20)
+    context ={
+        'randomLetters' : randomLetters,
+        'sizeOfImages': sizeOfImages
+    }
+    return render(request, "index.html", context)
 
 @csrf_exempt
 def canvasToImage(request):
