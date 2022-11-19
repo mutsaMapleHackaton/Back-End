@@ -13,6 +13,7 @@ def index(request):
     if sizeOfImages > 20:
         randomLetters = random.sample(images, 20)
     context ={
+        'images' : images,
         'randomLetters' : randomLetters,
         'sizeOfImages': sizeOfImages
     }
@@ -36,7 +37,7 @@ def canvasToImage(request):
 
     uploadImage(filename, "img/"+filename)
 
-    return render(request, "testLetterCreate.html")
+    return render(request, "main.html")
 
 def uploadImage(filename, image):
     form = Letter()

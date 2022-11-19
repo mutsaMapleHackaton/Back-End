@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('letterCreate/', views.canvasToImage, name="letterCreate"),
+    path('letterCreate', views.canvasToImage, name="letterCreate"),
 ]
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
