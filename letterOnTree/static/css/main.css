@@ -116,7 +116,10 @@
     bottom:42%;
 
 }
-
+.hiddenbtn3 {
+    position: absolute;
+    margin-bottom: 10%;
+}
 
 
 .writeBtn{
@@ -128,11 +131,17 @@
     margin-bottom:10%;
 }
 #imtext1{
-    position:absolute;
-    background-image : url('./img/letterp1.png');
-    background-repeat : no-repeat;  
-    background-size:cover;
-    width:650px;
-    height:800px;
-    overflow:hidden;
+    height:70px;
+    width:450px;
+    position: absolute;
+    bottom:30%;
+    top:45%;
+    margin-left:6%;
+    opacity: 0.5;
+    text-align: center;
+    border: 1px black;
+    border-radius: 10%;
+    font-weight: bolder;
+    font-size: larger;
+    background: transparent;
 }

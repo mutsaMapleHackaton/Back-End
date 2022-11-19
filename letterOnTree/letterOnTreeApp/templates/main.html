@@ -54,15 +54,21 @@
     <div class="writeBtn" style="position:absolute">
         <input type="image" src="{% static 'img/writeLetterBtn.png' %}" onclick="writeLetter();">
     </div>
-    <div id="letter" style="width: 650px; height: 820px;"> 
-        <div id="letterForm" style="display: none;"> <!--폼작성-->
-            <img class="letterFormimg" style="position:absolute"> 
-            <input type="text" id="imtext1" class="imtext" style=" border:2px black; text-align: center; font-size:20px; display: inline-block;">
-            <input type="image" src="{% static 'img/hidebtn.png' %}" onclick="div_hide3();" id="hiddenbtn3" class="hiddenbtn3"> 
+    <div id="letter" style="width: 620px; height: 780px;"> 
+        <div id="letterForm" style="display:none;"> <!--폼작성-->
+            <!-- <img class="letterFormimg" style="position:absolute">  -->
+            <div>
+                <img id="imtext2" style="position: absolute;">
+                <input type="text"  id="imtext1" class="imtext" placeholder="소원을 빌어주세요 :)">
+                <input type="image" src="{% static 'img/hidebtn.png' %}" onclick="div_hide3();" id="hiddenbtn3" class="hiddenbtn3"> 
+            </div>    
         </div>
         <input type="submit" id="save" value="저장" style="margin-left:120%;">
     </div>
 
+    <div class="santa" style="position: absolute; left:75%; bottom:15%;">
+        <img src="{% static 'img/santa.png' %}" id="santaImg">
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.1.js"integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="crossorigin="anonymous"></script>
 
@@ -102,7 +108,7 @@
             var imgChange=imgArray[imgNum];
             console.log(imgChange);
             $("#letterForm").attr('style',"block");
-            $(".letterFormimg").css('background-image',imgChange);
+            $("#imtext2").attr('src',imgChange);
         }
         function div_hide3() {
             document.getElementById("letterForm").style.display = "none";
