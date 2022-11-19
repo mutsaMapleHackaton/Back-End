@@ -54,7 +54,7 @@
     <div class="writeBtn" style="position:absolute">
         <input type="image" src="{% static 'img/writeLetterBtn.png' %}" onclick="writeLetter();">
     </div>
-    <div id="letter" style="width: 620px; height: 780px;"> 
+    <div id="letter" style="width: 630px; height: 780px;"> 
         <div id="letterForm" style="display:none;"> <!--폼작성-->
             <!-- <img class="letterFormimg" style="position:absolute">  -->
             <div>
@@ -63,7 +63,6 @@
                 <input type="image" src="{% static 'img/hidebtn.png' %}" onclick="div_hide3();" id="hiddenbtn3" class="hiddenbtn3"> 
             </div>    
         </div>
-        <input type="submit" id="save" value="저장" style="margin-left:120%;">
     </div>
 
     <div class="santa" style="position: absolute; left:75%; bottom:15%;">
@@ -111,22 +110,19 @@
             $("#imtext2").attr('src',imgChange);
         }
         function div_hide3() {
+            screenShot($("#letter"));
             document.getElementById("letterForm").style.display = "none";
 
         }
         // div capture
-        $("#save").on("click", function() {
-            console.log("d");
-            sreenShot($("#letter"));
-        });
-        function sreenShot(target) {
+        function screenShot(target) {
             console.log(target);
             if (target != null && target.length > 0) {
                 var t = target[0];
                 console.log(t);
                 html2canvas(t).then(async function(canvas) {
                     var data = await canvas.toDataURL();
-                    console.log(data);
+                    alert("편지가 등록되었습니다~");
                     $.ajax({
                         type : "POST",
                         url: "letterCreate",
