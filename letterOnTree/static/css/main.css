@@ -121,6 +121,14 @@
     margin-bottom: 10%;
 }
 
+#nextBtn{
+    width: 50px; /* 사이즈 */
+    height: 50px; /* 사이즈 */
+    
+
+
+}
+
 
 .writeBtn{
     position:absolute;
