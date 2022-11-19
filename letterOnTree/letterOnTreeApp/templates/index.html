@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,7 @@
 </head>
 <body>
     {% for letter in randomLetters%}
-    <img src="{{letter.image.url}}" width="50"><br>
+        <img src="{{letter.image.url}}" width="50"><br>
     {% endfor %}
 </body>
 </html>
