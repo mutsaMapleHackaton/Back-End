@@ -6,7 +6,6 @@ from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from .models import Letter
 
-# Create your views here.
 def index(request):
     images = list(Letter.objects.all())
     randomLetters = images
@@ -17,7 +16,7 @@ def index(request):
         'randomLetters' : randomLetters,
         'sizeOfImages': sizeOfImages
     }
-    return render(request, "index.html", context)
+    return render(request, "index2.html", context)
 
 @csrf_exempt
 def canvasToImage(request):
@@ -36,23 +35,6 @@ def canvasToImage(request):
     image.close()
 
     uploadImage(filename, "img/"+filename)
-
-    # answer ={
-    #     'title': filename,
-    #     'image': path
-    # }
-    # letters = []
-    # letter = {}
-    # letter["model"] = "letterOnTreeApp.Letter"
-    # letter["fields"] = {}
-    
-    # for key, value in answer.items():
-    #     if key in ['title', 'image']:
-    #         letter["fields"][key] = value
-    #     letters.append(letter)
-
-    # with open('letters.json', 'w', encoding="utf-8") as make_file: 
-    #         json.dump(letters, make_file, ensure_ascii=False, indent="\t") 
 
     return render(request, "testLetterCreate.html")
 
