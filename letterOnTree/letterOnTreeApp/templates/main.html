@@ -17,7 +17,7 @@
 </head>
 
 <body style="overflow:hidden; margin:0 auto; background-color:#F9D692;">
-
+    
     <div style="position:absolute; background-color:#97704A; height:34%; width:100%; top:66%"></div>
     <img style="position:absolute; margin-left:2%; height:85%; width:18%;left:21px; display: flex;" src="{% static 'img/fireplace.png' %}">
     <div class="tree">
@@ -79,12 +79,28 @@
          //랜덤 이미지 추출  
         //보이기
         function div_show() {
+            $.ajax({
+                type : "GET",
+                url: "letterShow",
+                data: {},
+                dataType:'json',
+                success : function(response) {
+                    printf("---------------", response["response"])
+                    {% comment %} letterName = random.choice(response) {% endcomment %}
+
+                    {% comment %} $("#letterPaper").attr('src',letterName);
+                    $("#popup").attr('style',"block"); {% endcomment %}
+                },
+                error : function(a, b, c) {
+                    alert("error");
+                }
+            });
+
+            {% comment %} 
             var imgArray=["{% static 'img/letterp1.png' %}","{% static 'img/letterp2.png' %}","{% static 'img/letterp3.png' %}","{% static 'img/letterp4.png' %}"];
             var imgNum=Math.floor(Math.random()*3);
-            var imgChange=imgArray[imgNum];
-            $("#letterPaper").attr('src',imgChange);
-            // document.getElementById("popup").style.display = "block";
-            $("#popup").attr('style',"block");
+            var imgChange=imgArray[imgNum]; 
+            {% endcomment %}
         }    
         //숨기기
         function div_hide() {

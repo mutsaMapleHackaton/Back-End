@@ -1,6 +1,8 @@
 import base64
 import os
 import random
+import json
+from flask import Flask, jsonify, current_app
 from django.shortcuts import render
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
@@ -17,6 +19,9 @@ def index(request):
         'randomLetters' : randomLetters,
         'sizeOfImages': sizeOfImages
     }
+    
+    filelist()
+    
     return render(request, "main.html", context)
 
 @csrf_exempt
@@ -44,3 +49,19 @@ def uploadImage(filename, image):
     form.title = filename
     form.image = image
     form.save()
+    
+@staticmethod
+def filelist():
+    app = Flask(__name__)
+    with app.app_context():
+        cwd = os.getcwd() #현재 path
+        
+        print(os.listdir(cwd + '/media/img'))
+        list = os.listdir(cwd + '/media/img')
+        response={
+            "response" : list
+        }
+        
+        json_return=json.dumps(response)   #string #json
+        print("json_return", json_return)
+        return jsonify(response)
