@@ -1,15 +1,28 @@
 import base64
-import json
 import os
 import random
+import json
+from flask import Flask, jsonify, current_app
 from django.shortcuts import render
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from .models import Letter
 
-# Create your views here.
 def index(request):
-    return render(request, "testLetterCreate.html")
+    images = list(Letter.objects.all())
+    randomLetters = images
+    sizeOfImages = len(images)
+    if sizeOfImages > 20:
+        randomLetters = random.sample(images, 20)
+    context ={
+        'images' : images,
+        'randomLetters' : randomLetters,
+        'sizeOfImages': sizeOfImages
+    }
+    
+    filelist()
+    
+    return render(request, "main.html", context)
 
 @csrf_exempt
 def canvasToImage(request):
@@ -29,27 +42,26 @@ def canvasToImage(request):
 
     uploadImage(filename, "img/"+filename)
 
-    # answer ={
-    #     'title': filename,
-    #     'image': path
-    # }
-    # letters = []
-    # letter = {}
-    # letter["model"] = "letterOnTreeApp.Letter"
-    # letter["fields"] = {}
-    
-    # for key, value in answer.items():
-    #     if key in ['title', 'image']:
-    #         letter["fields"][key] = value
-    #     letters.append(letter)
-
-    # with open('letters.json', 'w', encoding="utf-8") as make_file: 
-    #         json.dump(letters, make_file, ensure_ascii=False, indent="\t") 
-
-    return render(request, "testLetterCreate.html")
+    return render(request, "main.html")
 
 def uploadImage(filename, image):
     form = Letter()
     form.title = filename
     form.image = image
     form.save()
+    
+@staticmethod
+def filelist():
+    app = Flask(__name__)
+    with app.app_context():
+        cwd = os.getcwd() #현재 path
+        
+        print(os.listdir(cwd + '/media/img'))
+        list = os.listdir(cwd + '/media/img')
+        response={
+            "response" : list
+        }
+        
+        json_return=json.dumps(response)   #string #json
+        print("json_return", json_return)
+        return jsonify(response)

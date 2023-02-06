@@ -1,0 +1,155 @@
+.treeImg{
+    margin-top: 3%;
+}
+.exbutton{
+    background: none;
+    border:0;
+    outline: 0;
+    position: absolute;
+    left:30%;
+}
+
+
+.letter1{
+    border:0;
+    outline: 0;
+    position:absolute;
+    left:50%;
+    bottom:43%;
+    background: none;
+}
+
+#letterPaper{
+    left:30%;
+    position: absolute;
+    height:70%;
+    width:30%;
+    left: 10%;
+    bottom:10%;
+    border-radius: 0px;
+
+}
+.hiddenbtn{
+    width:5%;
+    height:4%;
+    position:absolute;
+    bottom:20%;
+    left:22%;
+}
+.letter2{
+    border:0;
+    outline: 0;
+    position:absolute;
+    left:60%;
+    bottom:60%;
+    background: none;
+
+}
+.letter3{
+    border:0;
+    outline: 0;
+    position:absolute;
+    left:60%;
+    bottom:43%;
+    background: none;
+
+}
+.letter4{
+    border:0;
+    outline: 0;
+    position:absolute;
+    left:68%;
+    bottom:49%;
+    background: none;
+
+}
+.letter5{
+    border:0;
+    outline: 0;
+    position:absolute;
+    left:70%;
+    bottom:30%;
+    background: none;
+}
+.tree button img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.letterbtn img:hover{
+    filter: blur(2px);
+    border-radius: 3.4px;
+    filter: drop-shadow( 10px 15px 10px #FFFFFF);
+
+}
+
+
+#exbutton:hover{
+    filter: blur(2px);
+    border-radius: 3.4px;
+    filter: drop-shadow( 10px 15px 10px #FFFFFF);
+}
+
+#exbox{
+    font-size: 23px;
+    color: white;
+}
+.extext{
+    position: absolute;
+    left: 30%;
+    bottom: 50%;
+    white-space: nowrap;
+    text-align: center;
+    font-weight: bold;
+    margin:0 auto;
+}
+#exbox p{
+    font-weight: bold;
+    font-size: 43px;
+    
+}
+.hiddenbtn2{
+    position: absolute;
+    left:50%;
+    bottom:42%;
+
+}
+.hiddenbtn3 {
+    position: absolute;
+    margin-bottom: 10%;
+}
+
+#nextBtn{
+    width: 50px; /* 사이즈 */
+    height: 50px; /* 사이즈 */
+    
+
+
+}
+
+
+.writeBtn{
+    position:absolute;
+    left:80%;
+}
+.hiddenbtn3{
+    position:absolute;
+    margin-bottom:10%;
+}
+#imtext1{
+    height:70px;
+    width:450px;
+    position: absolute;
+    bottom:30%;
+    top:45%;
+    margin-left:6%;
+    opacity: 0.5;
+    text-align: center;
+    border: 1px black;
+    border-radius: 10%;
+    font-weight: bolder;
+    font-size: larger;
+    background: transparent;
+}
